@@ -18,7 +18,7 @@ import {
   Specifics,
 } from "../../components";
 import { COLORS, icons, SIZES } from "../../constants";
-import useFetch from "../../hook/useFetch";
+import { useFetch } from "../../hook/useFetch";
 
 const tabs = ["About", "Qualifications", "Responsibilities"];
 
@@ -26,7 +26,7 @@ const JobDetails = () => {
   const params = useSearchParams();
   const router = useRouter();
 
-  const { data, isLoading, error, refetch } = useFetch("job-details", {
+  const { data, isLoading, error, refetch } = useFetch('job-details', {
     job_id: params.id,
   });
 
@@ -59,7 +59,7 @@ const JobDetails = () => {
         return (
           <Specifics
             title='Responsibilities'
-            points={data[0].job_highlights?.Responsibilities ?? ["N/A"]}
+            points={data[0].job_highlights?.Responsibilities ?? ["No Responsibilities Stated"]}
           />
         );
 
